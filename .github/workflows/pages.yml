@@ -23,7 +23,8 @@ jobs:
         run: |
           mkdir -p _site/assets
           cp index.html app.js style.css _site/
-          for asset in space.jpg gun.jpg scripts.jpg racing.jpg steal.jpg bomb.jpg gun-showcase.mp4 scripts.mp4; do
+          cp assets/*.jpg _site/assets/
+          for asset in space.jpg gun.jpg scripts.jpg racing.jpg gun-showcase.mp4 scripts.mp4; do
             curl --fail --location --retry 3 "https://playable-portfolio.backup67676767677676.chatgpt.site/assets/$asset" -o "_site/assets/$asset"
           done
       - uses: actions/configure-pages@v5
